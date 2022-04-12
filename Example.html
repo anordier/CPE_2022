@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+
+    <title>Challenge Projets d'Entreprendre</title>    
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      .logo{
+				color:#663399;
+				font-size:25px;
+				font-family:verdana;
+				text-align:left;
+				margin-top:0px;
+				float:left;
+				margin:0px;
+				line-height:50px;
+				padding-left:9px;
+			}
+
+      .leaflet-container {
+        height: 400px;
+        width: 600px;
+        max-width: 100%;
+        max-height: 100%;
+        margin-top: 1%;
+      }
+      div {
+        margin: auto;
+      }
+
+      .header{
+				width:100%;
+				height:60px;
+				background-color:#E6E6FA;
+    </style>
+
+  </head>
+
+  <body>
+    <div class="header">
+			<h1 class="logo">Challenge Projets d'Entreprendre 2022</h1>
+		</div>
+    
+    <main>
+        <div id="map" style="width: 1200px; height: 800px;"></div>
+        
+        <script>
+
+          var map = L.map('map').setView([48.8575, 2.3499], 13);
+
+          var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+              'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+          }).addTo(map);
+
+          var greenIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+          });
+
+          var yellowIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+          });
+
+          var orangeIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+          });
+
+          var redIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+          });
+
+
+          var marker1 = L.marker([48.86398, 2.33554], {icon: greenIcon}).addTo(map);
+          marker1.bindPopup("<b>Hôtel Machin</b><br>7 Rue Marcel<br>16 places libres sur 25");
+          var marker2 = L.marker([48.87181, 2.36867], {icon: yellowIcon}).addTo(map);
+          marker2.bindPopup("<b>Parc Kézako</b><br>2 Avenue Qui-ça<br>13 places libres sur 30");
+          var marker3 = L.marker([48.85758, 2.37972], {icon: redIcon}).addTo(map);
+          marker3.bindPopup("<b>Gare du Sud</b><br>85 Place Gipalle<br>0 places libres sur 70");
+          var marker4 = L.marker([48.83281, 2.35523], {icon: orangeIcon}).addTo(map);
+          marker4.bindPopup("<b>M. Lorem Ipsum</b><br>412bis Rue Platon<br>2 places libres sur 2");
+          var marker5 = L.marker([48.85446, 2.35067], {icon: redIcon}).addTo(map);
+          marker5.bindPopup("<b>Centre Commercial Coco</b><br>9 Voie du Jedi<br>0 places libres sur 100");
+          var marker6 = L.marker([48.84149, 2.30031], {icon: yellowIcon}).addTo(map);
+          marker6.bindPopup("<b>Usine Pétrochimique Jacques Chirac</b><br>5 Boulevard des Ecoliers<br>13 places libres sur 42");
+          var marker7 = L.marker([48.87634, 2.31202], {icon: redIcon}).addTo(map);
+          marker7.bindPopup("<b>Palais de L'Élysée</b><br>1 Rue Je-sais-pas-moi<br>1 places libres sur 20");
+          var marker8 = L.marker([48.85730, 2.27421], {icon: greenIcon}).addTo(map);
+          marker8.bindPopup("<b>Gare de l'Ouest</b><br>2 Place de la Gare de l'Est<br>38 places libres sur 55");
+          var marker9 = L.marker([48.84924, 2.27220], {icon: greenIcon}).addTo(map);
+          marker9.bindPopup("<b>Square Carré</b><br>1 Square Carré<br>10 places libres sur 15");
+          var marker10 = L.marker([48.86765, 2.40231], {icon: orangeIcon}).addTo(map);
+          marker10.bindPopup("<b>Immeuble Moche</b><br>247 Rue super chère<br>4 places libres sur 5");
+          var marker11 = L.marker([48.89046, 2.34464], {icon: orangeIcon}).addTo(map);
+          marker11.bindPopup("<b>M. Sherlock Holmes</b><br>221B Rue du Boulanger<br>2 places libres sur 4");
+          
+          </script>
+    </main>
+    
+  </body>
+</html>
